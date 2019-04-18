@@ -114,7 +114,15 @@ str(chart_data)
 #8#
 # here, visulizing crime type 
 counts <- table(chart_data$Crime.type)
-barplot(counts, main = "Crime Type Distribution", xlab = "Types of Crime", 
-        ylab = "Count of Crime Type", col = "red", beside=TRUE)
 
+library(RColorBrewer)
+coul = brewer.pal(9, "Pastel2") 
+#op <- par(mar=c(11,4,4,2))
+op <- par(mar=c(15,15,4,4,2), mgp=c(5, 5, 0))
+chart <- barplot(height = counts, main = "Crime Type Distribution", xlab = "Types of Crime", 
+        ylab = "Count of Crime Type", col = coul, beside=TRUE, las=2, names.arg="")
+text(chart[,1], -3.7, srt = 60, adj= 1, xpd = TRUE, xlab = counts, 
+     labels = paste(rownames(counts)), cex=1.2 )
+rm(op)
 str(chart_data)
+
