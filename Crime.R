@@ -115,10 +115,10 @@ str(chart_data)
 # here, visulizing crime type 
 counts <- table(chart_data$Crime.type)
 
-library(RColorBrewer)
+library(RColorBrewer) #using for pre-made color palettes
 coul = brewer.pal(9, "Pastel2") 
 #op <- par(mar=c(11,4,4,2))
-op <- par(mar=c(15,15,4,4,2), mgp=c(5, 5, 0))
+op <- par(mar=c(15,15,4,4,2), mgp=c(5, 5, 0)) #to set a margin of Graph
 chart <- barplot(height = counts, main = "Crime Type Distribution", xlab = "Types of Crime", 
         ylab = "Count of Crime Type", col = coul, beside=TRUE, las=2, names.arg="")
 text(chart[,1], -3.7, srt = 60, adj= 1, xpd = TRUE, xlab = counts, 
